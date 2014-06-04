@@ -35,6 +35,10 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
             templateUrl: '/partials/user/connect-local',
             resolve: routeRoleChecks.user
         })
+        .when('/hiragana', {
+            templateUrl: '/partials/learn/hiragana',
+            controller: 'hiraganaController'
+        })
         .when('/admin/users', {
             templateUrl: '/partials/admin/user-list',
             controller: 'adminUsersController',

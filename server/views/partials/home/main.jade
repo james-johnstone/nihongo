@@ -3,7 +3,7 @@
 		h2 Nihongo!
 		p hacking ground for nodejs, mean stack and learning some japanese
 
-	.jumbotron.text-center.auth-area(ng-hide="identity.isAuthenticated()")
+	.jumbotron.text-center.jumbotron-btns(ng-hide="identity.isAuthenticated()")
 		h2
 			.fa.fa-lock
 
@@ -19,3 +19,7 @@
 				.fa.fa-twitter &nbsp; Twitter
 			a.btn.btn-danger(href="/auth/google", target="_self")
 				.fa.fa-google-plus &nbsp; Google
+	.jumbotron.text-center.jumbotron-btns
+		a.btn.btn-warning(href="/hiragana") Learn Hiragana
+		a.btn.btn-warning(href="/katakana") Learn Katakana
+		a.btn.btn-warning(href="/vocab") Learn Vocab

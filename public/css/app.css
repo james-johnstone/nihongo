@@ -19,7 +19,7 @@ footer {
 .toastr-top-right {
   top: 70px;
 }
-.auth-area a {
+.jumbotron-btns a {
   margin: 4px;
 }
 .toast-success {
@@ -144,16 +144,6 @@ select {
   background-repeat: no-repeat;
   border: 1px solid #2e8a19;
 }
-/*
-.root-cards-animation.ng-hide-add 
-  opacity: 1.0;
-  display: block !important;
-  transition: opacity 1s;
-
-
-.root-cards-animation.ng-hide-add-active 
-  opacity: 0;
-  */
 .root-cards-animation.ng-hide-remove {
   -moz-animation: fadeInDown 1s;
   -o-animation: fadeInDown 1s;
@@ -181,3 +171,65 @@ select {
 .root-container {
   min-height: 134px;
 }
+
+.flip-container {
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+}
+	/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+	width: 88px;
+	height: 88px;
+    padding:4px;
+    text-align:center;
+    font-size:60px;
+}
+
+/* flip speed goes here */
+.flipper {
+    -moz-transition: 0.6s;
+    -o-transition: 0.6s;
+    -webkit-transition: 0.6s;
+    transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+}
+
+/* back, initially hidden pane */
+.back {
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.kana-title {width:100%; text-align: center;}
+
+.main-content {min-width:725px;}

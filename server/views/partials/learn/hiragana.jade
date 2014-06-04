@@ -1,0 +1,6 @@
+﻿.container
+	.col-xs-1(ng-repeat="group in kanaGroups")
+		strong {{group.grouping}}
+		
+		.group-column
+			.(ng-repeat="kana in kanas | fiter:'kana.kanaGroup == group'")
