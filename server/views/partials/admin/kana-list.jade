@@ -1,5 +1,5 @@
 ﻿.container
-	h2 Hiraganas
+	h2 Kanas
 	.pull-right
 		form.form-inline
 			.form-group
@@ -11,13 +11,13 @@
 				th Translation
 				th Kana
 				th Edit
-		tr(ng-repeat="kana in kanas | filter:searchText | orderBy:['kanaGroup.order', 'order']")
+		tr(ng-repeat="kana in kanas | filter:searchText | orderBy:['kanaGroup.order', 'order'] | startFrom:currentPage*pageSize | limitTo:pageSize")
 			td {{kana._id}}
 			td {{kana.translation}}
 			td {{kana.kana}}
 			td
-				button.btn.btn-info(ng-click="editHiragana(kana)")
+				button.btn.btn-info(ng-click="editKana(kana)")
 	div page {{ currentPage+1 }} / {{numberOfPages()}}
 	button.btn.btn-info(ng-disabled="currentPage == 0", ng-click="currentPage=currentPage-1") Previous
 	button.btn.btn-info(ng-disabled="currentPage >= kanas.length/pageSize - 1", ng-click="currentPage=currentPage+1") Next
-	button.btn.btn-success.pull-right(ng-click="createHiragana()") Add Kana
+	button.btn.btn-success.pull-right(ng-click="createKana()") Add Kana

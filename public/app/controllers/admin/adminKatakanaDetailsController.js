@@ -1,15 +1,15 @@
-﻿angular.module('app').controller('adminHiraganaDetailsController', function ($scope, $routeParams, $location, hiraganaResource, hiraganaService, kanaGroupResource) {
+﻿angular.module('app').controller('adminKatakanaDetailsController', function ($scope, $routeParams, $location, katakanaResource, katakanaService, kanaGroupResource) {
 
     if (!!$routeParams.id) {
-        $scope.kana = hiraganaResource.get({ id: $routeParams.id });
+        $scope.kana = katakanaResource.get({ id: $routeParams.id });
     }
     $scope.kanaGroups = kanaGroupResource.query();
 
     $scope.update = function () {
 
         if (!!$routeParams.id) {
-            hiraganaService.updateHiragana($scope.kana).then(function () {
-                $location.path('/admin/hiragana')
+            katakanaService.updateKatakana($scope.kana).then(function () {
+                $location.path('/admin/katakana')
                 Messenger().post('Kana details successfully updated');
             }, function (reason) {
                 Messenger().post({
@@ -20,8 +20,8 @@
         }
 
         else {
-            hiraganaService.createHiragana($scope.kana).then(function () {
-                $location.path('/admin/hiragana')
+            katakanaService.createKatakana($scope.kana).then(function () {
+                $location.path('/admin/katakana')
                 Messenger().post('Kana successfully created');
             }, function (reason) {
                 Messenger().post({
@@ -33,6 +33,6 @@
     };
 
     $scope.cancel = function () {
-        $location.path('/admin/hiragana');
+        $location.path('/admin/katakana');
     };
 });

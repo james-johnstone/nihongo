@@ -4,7 +4,8 @@
     User                = mongoose.model('User'),
     Hiragana            = mongoose.model('Hiragana'),
     userController      = require('../controllers/users'),
-    hiraganaController  = require('../controllers/hiragana')
+    hiraganaController  = require('../controllers/hiragana'),
+    katakanaController   = require('../controllers/katakana')
     kanaGroupController = require('../controllers/kanaGroup');
 
 module.exports = function (app, passport) {
@@ -26,6 +27,14 @@ module.exports = function (app, passport) {
         .get(auth.requiresRole('admin'), hiraganaController.getHiraganas)
         .post(hiraganaController.createHiragana)
         .put(hiraganaController.updateHiragana);
+
+    app.get('/api/hiragana/:id', auth.requiresRole('admin'), hiraganaController.getHiragana);
+
+    //-- katakana
+    app.route('/api/katakana')
+        .get(auth.requiresRole('admin'), katakanaController.getKatakanas)
+        .post(katakanaController.createKatakana)
+        .put(katakanaController.updateKatakana);
 
     app.get('/api/hiragana/:id', auth.requiresRole('admin'), hiraganaController.getHiragana);
 

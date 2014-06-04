@@ -9,15 +9,15 @@
         return Math.ceil($scope.kanas.length / $scope.pageSize);
     }
 
-    $scope.editHiragana = function (hiragana) {
+    $scope.editKana = function (hiragana) {
         $location.path("/admin/hiragana/" + hiragana._id);
     };
 
-    $scope.createHiragana = function () {
+    $scope.createKana = function () {
         $location.path("/admin/hiragana/new");
     };
 
-    $scope.deleteHiragana = function (hiragana) {
+    $scope.deleteKana = function (hiragana) {
         hiraganaService.deleteHiragana(hiragana).then(function () {
             $scope.kanas.splice($scope.kanas.indexOf(hiragana), 1);
             Messenger().post('Kana successfully deleted');

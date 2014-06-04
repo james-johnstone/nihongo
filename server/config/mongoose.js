@@ -2,7 +2,7 @@
     Grid = require('gridfs-stream'),
     userModel = require('../models/user'),
     hiraganaModel = require('../models/kana'),
-    kataganaModel = require('../models/kana'),
+    katakanaModel = require('../models/kana'),
     KanaGroupingModel = require('../models/KanaGrouping');
 
 module.exports = function (config) {

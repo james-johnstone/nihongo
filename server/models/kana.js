@@ -16,4 +16,4 @@ var kana = new Schema(
     });
 
 var Hiragana = mongoose.model('Hiragana', kana);
-var Katagana = mongoose.model('Katagana', kana);
+var Katakana = mongoose.model('Katakana', kana);
