@@ -1,0 +1,17 @@
+doctype html
+
+html
+	head
+		title Eto
+		link(href="/flavicon.ico", rel="shortcur icon", type="image/x-icon")
+		link(rel="stylesheet", href="/css/bootstrap.css")
+		link(rel="stylesheet"  href="/dependancies/font-awesome/css/font-awesome.min.css")
+		link(rel="stylesheet", href="/dependancies/messenger/build/css/messenger.css")
+		link(rel="stylesheet", href="/dependancies/messenger/build/css/messenger-spinner.css")
+		link(rel="stylesheet", href="/dependancies/messenger/build/css/messenger-theme-future.css")
+		link(rel="stylesheet", href="/css/animate.css")
+		link(rel="stylesheet", href="/css/app.css")
+	body(ng-app='app')
+		include currentUser
+		block main-content
+	include scripts
