@@ -44,6 +44,36 @@ angular.module('app').config(function ($routeProvider, $locationProvider) {
             templateUrl: '/partials/admin/user-details',
             controller: 'adminUserDetailsController',
             resolve: routeRoleChecks.admin
+        })
+        .when('/admin/hiragana', {
+            templateUrl: '/partials/admin/hiragana-list',
+            controller: 'adminHiraganaController',
+            resolve: routeRoleChecks.admin
+        })
+        .when('/admin/hiragana/new', {
+            templateUrl: '/partials/admin/hiragana-details',
+            controller: 'adminHiraganaDetailsController',
+            resolve: routeRoleChecks.admin
+        })
+        .when('/admin/hiragana/:id', {
+            templateUrl: '/partials/admin/hiragana-details',
+            controller: 'adminHiraganaDetailsController',
+            resolve: routeRoleChecks.admin
+        })
+        .when('/admin/kanaGroups', {
+            templateUrl: '/partials/admin/kanaGroup-list',
+            controller: 'adminKanaGroupController',
+            resolve: routeRoleChecks.admin
+        })
+        .when('/admin/kanaGroup/new', {
+            templateUrl: '/partials/admin/kanaGroup-details',
+            controller: 'adminKanaGroupDetailsController',
+            resolve: routeRoleChecks.admin
+        })
+        .when('/admin/kanaGroup/:id', {
+            templateUrl: '/partials/admin/kanaGroup-details',
+            controller: 'adminKanaGroupDetailsController',
+            resolve: routeRoleChecks.admin
         });
 });
 

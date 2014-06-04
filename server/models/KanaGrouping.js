@@ -6,15 +6,8 @@ var KanaGroupingSchema = new Schema({
     grouping: {
             type: String, required: '{PATH} is required', unique: true
     },
-    type: String,
     order: Number,
-    hiragana: {
-        type: mongoose.Schema.ObjectId, ref: 'Hiragana'
-    },
-    katagana: {
-        type: mongoose.Schema.ObjectId, ref: 'Katagana'
-    },   
-
+    type: String
 });
 
 var KanaGrouping = mongoose.model('KanaGrouping', KanaGroupingSchema);

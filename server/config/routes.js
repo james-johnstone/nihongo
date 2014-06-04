@@ -1,8 +1,11 @@
-﻿var auth = require('./auth'),
-    path = require('path'),
-    mongoose = require('mongoose'),
-    User = mongoose.model('User'),
-    userController = require('../controllers/users');
+﻿var auth                = require('./auth'),
+    path                = require('path'),
+    mongoose            = require('mongoose'),
+    User                = mongoose.model('User'),
+    Hiragana            = mongoose.model('Hiragana'),
+    userController      = require('../controllers/users'),
+    hiraganaController  = require('../controllers/hiragana')
+    kanaGroupController = require('../controllers/kanaGroup');
 
 module.exports = function (app, passport) {
 
@@ -17,6 +20,22 @@ module.exports = function (app, passport) {
         .put(userController.updateUser);
 
     app.get('/api/users/:id', auth.requiresRole('admin'), userController.getUser);
+
+    //-- hiragana
+    app.route('/api/hiragana')
+        .get(auth.requiresRole('admin'), hiraganaController.getHiraganas)
+        .post(hiraganaController.createHiragana)
+        .put(hiraganaController.updateHiragana);
+
+    app.get('/api/hiragana/:id', auth.requiresRole('admin'), hiraganaController.getHiragana);
+
+    //-- kana groups
+    app.route('/api/kanaGroup')
+        .get(auth.requiresRole('admin'), kanaGroupController.getKanaGroups)
+        .post(kanaGroupController.createKanaGroup)
+        .put(kanaGroupController.updateKanaGroup);
+
+    app.get('/api/kanaGroup/:id', auth.requiresRole('admin'), kanaGroupController.getKanaGroup);
 
     //====================================================================
     // PARTIALS ROUTE

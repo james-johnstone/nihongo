@@ -1,0 +1,23 @@
+﻿.container
+	.well
+		form.form-horizontal(name="kanaGroupDetailsForm")
+			fieldset
+				legend Kana Group Details
+				.form-group
+					label.col-md-2.control-label Group
+					.col-md-6
+						input.form-control(name="grouping", type="text", placeholder="group", ng-model="kanaGroup.grouping", required, autofocus)
+				.form-group
+					label.col-md-2.control-label Type
+					.col-md-6
+						select.form-control(name="type",ng-model="kanaGroup.type", ng-options="item as item for item in types")
+				.form-group
+					label.col-md-2.control-label Order
+					.col-md-6
+						input.form-control(name="kana", type="number", placeholder="0", ng-model="kanaGroup.order")
+				.form-group
+					.col-md-6.col
+						.pull-right
+							button.btn.btn-primary(ng-click="update()", ng-disabled="kanaDetailsForm.$invalid") Submit
+							| 
+							a.btn.btn-default(href="/admin/kanaGroups") Cancel

@@ -1,0 +1,27 @@
+﻿.container
+	.well
+		form.form-horizontal(name="kanaDetailsForm")
+			fieldset
+				legend Kana Details
+				.form-group
+					label.col-md-2.control-label Translation
+					.col-md-6
+						input.form-control(name="translation", type="text", placeholder="translation", ng-model="hiragana.translation", required)
+				.form-group
+					label.col-md-2.control-label Kana
+					.col-md-6
+						input.form-control(name="kana", type="text", placeholder="kana", ng-model="hiragana.kana")
+				.form-group
+					label.col-md-2.control-label Order
+					.col-md-6
+						input.form-control(name="order", type="number", placeholder="0", ng-model="hiragana.order")
+				.form-group
+					label.col-md-2.control-label Kana Group
+					.col-md-6
+						select.form-control(name="kanaGroup", ng-model="hiragana.kanaGroup",ng-options="item._id as item.grouping for item in kanaGroups | orderBy:'order'")
+				.form-group
+					.col-md-6.col
+						.pull-right
+							button.btn.btn-primary(ng-click="update()", ng-disabled="kanaDetailsForm.$invalid") Submit
+							| 
+							a.btn.btn-default(href="/admin/hiragana") Cancel

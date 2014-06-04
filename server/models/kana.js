@@ -1,15 +1,19 @@
 ﻿var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var Kana = new Schema(
+var kana = new Schema(
     {
-        Kana: {
-            type: String, required: '{PATH} is required', unique: true
+        kana: {
+            type: String, required: '{PATH} is required'//, unique: true
         },
-        Translation: String,
-        Audio: String,
-        StokeOrder: String
+        translation: String,
+        order: Number,
+        kanaGroup: {
+            type: mongoose.Schema.ObjectId, ref: 'KanaGrouping'
+        },
+        audio: String,
+        stokeOrder: String
     });
 
-var Hiragana = mongoose.model('Hiragana', Kana);
-var Katagana = mongoose.model('Katagana', Kana);
+var Hiragana = mongoose.model('Hiragana', kana);
+var Katagana = mongoose.model('Katagana', kana);
