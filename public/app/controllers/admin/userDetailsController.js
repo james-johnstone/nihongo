@@ -15,7 +15,10 @@
             $location.path('/admin/users')
             Messenger().post('User details successfully updated');
         }, function (reason) {
-            Messenger().post(reason);
+            Messenger().post({
+                message: reason,
+                type: 'error'
+            });
         });
     };
 

@@ -10,7 +10,10 @@
                 Messenger().post('You have sucessfully logged in');
             }
             else {
-                Messenger().post('invalid email / password');
+                Messenger().post({
+                    message: 'invalid email / password',
+                    type: 'error'
+                });
             }
         });
     };

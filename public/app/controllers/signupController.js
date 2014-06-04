@@ -15,7 +15,10 @@
             Messenger().post('User account created!');
             $location.path('/');
         }, function (reason) {
-            Messenger().post(reason);
+            Messenger().post({
+                message: reason,
+                type: 'error'
+            });
         });
     };
 })

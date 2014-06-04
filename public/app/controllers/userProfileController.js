@@ -6,7 +6,10 @@
         authService.updateUser($scope.user).then(function () {
             Messenger().post('Your profile has been successfully updated');
         }, function (reason) {
-            Messenger().post(reason);
+            Messenger().post({
+                message: reason,
+                type: 'error'
+            });
         });
     }
 
